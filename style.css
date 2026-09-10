@@ -469,3 +469,10 @@ footer {
         height: 24px;
     }
 }
+
+.policy-section { padding: 40px 0; background: #fff; border-top: 1px solid #eee; }
+.policy-section h3 { margin: 20px 0 8px; color: #1a1615; }
+.policy-section p { color: #555; font-size: 0.95rem; margin-bottom: 15px; }
+.footer-links { margin-bottom: 10px; }
+.footer-links a { color: #d4a373; text-decoration: none; margin: 0 8px; }
+.footer-links a:hover { text-decoration: underline; }
