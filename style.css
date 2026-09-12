@@ -476,3 +476,66 @@ footer {
 .footer-links { margin-bottom: 10px; }
 .footer-links a { color: #d4a373; text-decoration: none; margin: 0 8px; }
 .footer-links a:hover { text-decoration: underline; }
+/* Color Selection Cards Styling - Full Image Visible */
+.color-cards-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-top: 8px;
+}
+.color-card {
+    cursor: pointer;
+    display: block;
+}
+.color-card input[type="radio"] {
+    display: none;
+}
+.color-card-inner {
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    padding: 8px;
+    text-align: center;
+    background: #ffffff;
+    transition: all 0.3s ease;
+}
+.color-card-inner img {
+    width: 100%;
+    height: 140px; /* লম্বালম্বি পুরো ছবি দেখানোর জন্য হাইট বাড়িয়ে দেওয়া হয়েছে */
+    object-fit: contain; /* ছবির কোনো অংশ কাটবে না, পুরো ল্যাম্প দেখা যাবে */
+    background-color: #fcfbfa;
+    border-radius: 6px;
+    margin-bottom: 6px;
+    padding: 4px;
+    border: 1px solid #f0e6d2;
+}
+.color-card-inner span {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #333;
+    display: block;
+    line-height: 1.2;
+}
+.color-card input[type="radio"]:checked + .color-card-inner {
+    border-color: #e76f51;
+    background-color: #fdf0ec;
+    box-shadow: 0 4px 10px rgba(231, 111, 81, 0.2);
+}
+.color-card input[type="radio"]:checked + .color-card-inner span {
+    color: #e76f51;
+}
+
+@media (max-width: 480px) {
+    .color-cards-container {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 6px;
+    }
+    .color-card-inner {
+        padding: 6px;
+    }
+    .color-card-inner img {
+        height: 110px; /* মোবাইল স্ক্রিনের জন্য উপযুক্ত হাইট */
+    }
+    .color-card-inner span {
+        font-size: 0.72rem;
+    }
+}

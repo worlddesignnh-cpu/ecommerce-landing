@@ -45,6 +45,10 @@ orderForm.addEventListener('submit', async function(e) {
     const name = document.getElementById('name').value.trim();
     const phone = document.getElementById('phone').value.trim();
     const address = document.getElementById('address').value.trim();
+    
+    // সিলেক্ট করা বেস কালার নেওয়া
+    const selectedColorInput = document.querySelector('input[name="baseColor"]:checked');
+    const selectedModel = selectedColorInput ? selectedColorInput.value : 'Dark Wood';
 
     // বাংলাদেশি নাম্বার ভ্যালিডেশন
     if (!/^01[3-9]\d{8}$/.test(phone)) {
@@ -67,6 +71,7 @@ orderForm.addEventListener('submit', async function(e) {
     const orderData = {
         order_id: uniqueOrderId,
         product_name: "Vintage Edison Lamp",
+        model: selectedModel, // এখানে ডেটাবেসের model কলামে কালারের নাম সেভ হবে
         quantity: qty,
         product_price: productPrice,
         delivery_charge: delivery,
@@ -80,7 +85,6 @@ orderForm.addEventListener('submit', async function(e) {
         const { error } = await supabaseClient.from('orders').insert([orderData]);
         if (error) throw error;
 
-        // Pixel - এখন ১০০% Clean
         if (typeof fbq!== 'undefined') {
             fbq('track', 'Purchase',
                 {value: grandTotal, currency: 'BDT', content_name: 'Vintage Edison Lamp', content_type: 'product', num_items: qty},
